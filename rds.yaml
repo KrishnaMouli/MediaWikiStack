@@ -1,0 +1,8 @@
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: mediawiki-ns
+  name: mediswiki-mysql
+spec:
+  type: ExternalName
+  externalName: terraform-20200830110523219500000002.cgr9grnhucra.us-east-1.rds.amazonaws.com

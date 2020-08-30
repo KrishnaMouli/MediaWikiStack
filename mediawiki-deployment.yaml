@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediawiki
+  namespace: mediawiki-ns
+  labels:
+    app: mediawiki
+    tire: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mediawiki
+      tire: frontend
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: mediawiki
+        tire: frontend
+    spec:
+      containers:
+        - image: mediawiki
+          name: mediawiki
+          ports:
+            - containerPort: 80
+              name: mediawiki
+          volumeMounts:
+            - name: mediawiki-persistent-storage
+              mountPath: /var/www/html/images
+      volumes:
+        - name: mediawiki-persistent-storage
+          persistentVolumeClaim:
+            claimName: mediawiki-pv-claim
