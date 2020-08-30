@@ -42,9 +42,7 @@ pipeline {
 				sh """
 					terraform apply -auto-approve ${plan}
 					aws eks update-kubeconfig --name ${params.cluster} --region ${params.region}
-				"""
 				sleep 30
-				sh """
 				kubectl get nodes
 				kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: $(terraform output rds_endpoint | cut -d ':' -f1)/g" rds.yaml && kubectl apply -f . 
 				"""
