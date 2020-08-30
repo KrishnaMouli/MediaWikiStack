@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('checkout') {
         steps {
-            git 'https://github.com/msquare25/Terraform-eks.git'
+            git 'https://github.com/KrishnaMouli/kstudy-thoughtworks.git'
         }
     }
     stage('TF Plan') {
