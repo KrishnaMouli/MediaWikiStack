@@ -18,6 +18,7 @@ pipeline {
         expression { params.action == 'create' }
 		}
 		steps {
+                      script {
 			
 			    plan = params.cluster + '.plan'
 				sh """
@@ -30,7 +31,7 @@ pipeline {
 						-out ${plan}
 					echo ${params.cluster}
 				"""
-      
+      }
       }
     }
     stage('Apply') {
@@ -38,6 +39,7 @@ pipeline {
         expression { params.action == 'create' }
 		}
 		steps {
+                      
 			
 				sh """
 					terraform apply -auto-approve ${plan}
