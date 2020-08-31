@@ -22,7 +22,7 @@ pipeline {
 			
 			    plan = params.cluster + '.plan'
 				sh """
-					terraform init -auto-approve
+					terraform init
 					terraform workspace new ${params.cluster} || true
 					terraform workspace select ${params.cluster}
 					terraform plan \
