@@ -49,3 +49,20 @@ resource "aws_security_group" "all_worker_mgmt" {
     ]
   }
 }
+
+resource "aws_security_group" "mediawiki_db" {
+  name_prefix = "mediawiki_db"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress {
+    from_port = 3306
+    to_port   = 3306
+    protocol  = "tcp"
+
+    cidr_blocks = [
+      "10.0.0.0/8",
+      "172.16.0.0/12",
+      "192.168.0.0/16",
+    ]
+  }
+}

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mediawiki
-  namespace: mediawiki-ns
+  namespace: thoughtworks
   labels:
     app: mediawiki
     tire: frontend

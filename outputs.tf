@@ -28,7 +28,13 @@ output "cluster_name" {
   value       = var.cluster_name
 }
 
-output "rds_endpoint" {
-  description = "rds end point"
-  value       = aws_db_instance.mediawiki_db.endpoint
+output "sg_id" {
+  description = "security group id"
+  value       = aws_security_group.mediawiki_db.id
 }
+
+output "endpoint" {
+  description = "Stores endpoint to the key"
+  value       = module.db.this_db_instance_endpoint
+}
+

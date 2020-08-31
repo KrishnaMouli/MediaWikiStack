@@ -21,10 +21,22 @@ variable "node_two_size" {}
 
 variable "cluster_name" {}
 
-variable "user" {
-  description = "provide user details"
+variable "identifier" {
+  description = "provide db identifier name"
 }
 
-variable "password" {
-  description = "Provide password"
+variable "instance_class" {
+  description = "Provide db instance type"
+}
+
+variable "name" {
+  description = "provide db name"
+}
+
+variable "db_user" {
+  description = "provide db user name"
+}
+
+variable "db_password" {
+  description = "provide db password"
 }
