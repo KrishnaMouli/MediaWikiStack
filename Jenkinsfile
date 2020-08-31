@@ -39,7 +39,7 @@ pipeline {
         expression { params.action == 'create' }
 		}
 		steps {
-                      
+                      script {
 			
 				sh """
 					terraform apply -auto-approve ${plan}
@@ -50,7 +50,7 @@ pipeline {
 				access_point=`/root/bin/kubectl get svc -n thoughtworks | grep -i 80: | grep -i LoadBalancer | awk '{print$4}'`
 				echo ${access_point}
 				"""
-			
+		      }
         }
 
     }
