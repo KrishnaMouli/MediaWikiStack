@@ -46,7 +46,9 @@ pipeline {
 					aws eks update-kubeconfig --name ${params.cluster} --region ${params.region}
 				sleep 30
 				/root/bin/kubectl get nodes
-				/root/bin/kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: `terraform output endpoint | cut -d ':' -f1`/g" db_rds_k8s.yaml && kubectl apply -f . 
+				/root/bin/kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: `terraform output endpoint | cut -d ':' -f1`/g" db_rds_k8s.yaml && kubectl apply -f .
+				access_point=$(/root/bin/kubectl get svc -n thoughtworks | grep -i 80: | grep -i LoadBalancer | awk '{print$4}')
+				echo $access_point
 				"""
 			
         }
