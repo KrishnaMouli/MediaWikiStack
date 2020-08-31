@@ -43,7 +43,7 @@ pipeline {
 			
 				sh """
 					terraform apply -auto-approve ${plan}
-					aws eks update-kubeconfig --name ${params.cluster} --region ${params.region}
+					aws eks update-kubeconfig --name "${params.cluster}" --region "${params.region}"
 				sleep 30
 				/root/bin/kubectl get nodes
 				/root/bin/kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: `terraform output endpoint | cut -d ':' -f1`/g" db_rds_k8s.yaml && kubectl apply -f .
