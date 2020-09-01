@@ -21,7 +21,9 @@
 
 •	Run the Job.
 
-•	Once job deployed successfully endpoint url and db name will get printed in the job console output.
+•	Once job deployed successfully endpoint url and db name will get printed in the job console output as shown below.
+ 
+![alt text](https://mediaimag.s3-us-west-2.amazonaws.com/media-3.JPG)
 
 •	Access the app by using that endpoint , configure db with the db name.
 
@@ -29,4 +31,11 @@
 
 # Expected Output
 
+Access the application.
+
 ![alt text](https://mediaimag.s3-us-west-2.amazonaws.com/media-1.JPG)
+
+After configuring DB.
+
+![alt text](https://mediaimag.s3-us-west-2.amazonaws.com/media-2.JPG)
+
