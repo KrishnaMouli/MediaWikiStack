@@ -3,7 +3,7 @@ pipeline {
    parameters {
     choice(name: 'action', choices: 'create\ndestroy', description: 'Create/destroy the cluster.')
 	string(name: 'cluster', defaultValue : 'mediawiki', description: "EKS cluster name.")
-	string(name: 'region', defaultValue : 'us-west-1', description: "AWS region.")
+	string(name: 'region', defaultValue : 'us-east-1', description: "AWS region.")
   }
 
   agent any
@@ -47,8 +47,8 @@ pipeline {
 				sleep 30
 				/root/bin/kubectl get nodes
 				/root/bin/kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: `terraform output endpoint | cut -d ':' -f1`/g" db_rds_k8s.yaml && /root/bin/kubectl apply -f .
-				endpoint=$(/root/bin/kubectl get svc -n thoughtworks | grep -i 80: | grep -i LoadBalancer | awk '{print \$4}')
-				echo /$endpoint
+				(endpoint=$(/root/bin/kubectl get svc -n thoughtworks | grep -i 80: | grep -i LoadBalancer | awk '{print \$4}'))
+				(echo /$endpoint)
 				"""
 		      }
         }
