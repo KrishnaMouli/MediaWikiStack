@@ -15,7 +15,7 @@
 
 •	Choose SCM as GIT.
 
-•	Provide the github URL(https://github.com/KrishnaMouli/kstudy-thoughtworks.git) as Repository URL.
+•	Provide the github URL(https://github.com/KrishnaMouli/assignment-thoughtworks.git) as Repository URL.
 
 •	Script path as Jenkinsfile.
 
