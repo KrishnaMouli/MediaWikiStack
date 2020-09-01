@@ -1,12 +1,9 @@
 # Technologies used to deploy mediawiki application
    
-    •    Terraform 
-   
-    •    Kubernates 
-   
-    •    AWS
-    
-    •    Jenkins 
+    •  Terraform 
+    •  Kubernates 
+    •  AWS
+    •  Jenkins 
 
 # Objective
 
@@ -14,5 +11,9 @@
 
 # Process/Steps needs to follow
 
-•	Create a Jenkins pipeline job and opt the options as shown in the below picture.
+•	Create a Jenkins pipeline job.
+•	Choose SCM as GIT.
+•	Script path as Jenkinsfile.
+•	Run the Job.
+
 
