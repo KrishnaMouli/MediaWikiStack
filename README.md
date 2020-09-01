@@ -12,8 +12,11 @@
 # Process/Steps needs to follow
 
 •	Create a Jenkins pipeline job.
+
 •	Choose SCM as GIT.
+
 •	Script path as Jenkinsfile.
+
 •	Run the Job.
 
 
