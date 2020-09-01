@@ -48,7 +48,7 @@ pipeline {
 				/root/bin/kubectl get nodes
 				/root/bin/kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: `terraform output endpoint | cut -d ':' -f1`/g" db_rds_k8s.yaml && /root/bin/kubectl apply -f .
 				(/root/bin/kubectl get svc -n thoughtworks | grep -i 80: | grep -i LoadBalancer | awk '{print \$4}')
-				(/root/bin/kubectl get svc -n thoughtworks | grep -i ExternalName | awk '{print $1}')
+				(/root/bin/kubectl get svc -n thoughtworks | grep -i ExternalName | awk '{print \$1}')
 				"""
 		      }
         }
