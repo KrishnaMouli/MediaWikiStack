@@ -26,3 +26,7 @@
 •	Access the app by using that endpoint , configure db with the db name.
 
 •	Coming to db authentication you can use username and password which we provided through terraform.tfvars file
+
+# Expected Output
+
+![alt text](https://mediaimag.s3-us-west-2.amazonaws.com/media-1.JPG)
