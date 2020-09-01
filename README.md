@@ -15,7 +15,7 @@
 
 •	Choose SCM as GIT.
 
-•	Provide this repo URL as Repository URL.
+•	Provide the github URL(https://github.com/KrishnaMouli/kstudy-thoughtworks.git) as Repository URL.
 
 •	Script path as Jenkinsfile.
 
@@ -27,7 +27,7 @@
 
 •	Access the app by using that endpoint , configure db with the db name.
 
-•	Coming to db authentication you can use username and password which we provided through terraform.tfvars file
+•	For db authentication please provide username and password which are provided through terraform.tfvars file
 
 # Expected Output
 
