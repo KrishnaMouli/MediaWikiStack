@@ -1,11 +1,18 @@
 # Technologies used to deploy mediawiki application
    
-    •    Terraform - To automate infrastructure deployment
+    •    Terraform 
    
-    •    Kubernates - To deploy mediawiki application
+    •    Kubernates 
    
-    •    AWS-RDS - As a database
-   
-    •    Jenkins - For CI-CD
+    •    AWS
+    
+    •    Jenkins 
 
-# 
+# Objective
+
+•	To automate the deployment of MediaWiki.
+
+# Process/Steps needs to follow
+
+•	Create a Jenkins pipeline job and opt the options as shown in the below picture.
+
