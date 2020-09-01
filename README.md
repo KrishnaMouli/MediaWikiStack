@@ -1,3 +1,8 @@
+# Flow Diagram
+
+
+![alt text](https://mediaimag.s3-us-west-2.amazonaws.com/arch.png)
+
 # Technologies used to deploy mediawiki application
    
     •  Terraform 
