@@ -1,7 +1,7 @@
 # Technologies used to deploy mediawiki application
    
     •  Terraform 
-    •  Kubernates 
+    •  Kubernetes
     •  AWS
     •  Jenkins 
 
