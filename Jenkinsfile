@@ -49,6 +49,7 @@ pipeline {
 				kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: `terraform output endpoint | cut -d ':' -f1`/g" db_rds_k8s.yaml && kubectl apply -f .
 				(kubectl get svc -n thoughtworks | grep -i 80: | grep -i LoadBalancer | awk '{print \$4}')
 				(kubectl get svc -n thoughtworks | grep -i ExternalName | awk '{print \$1}')
+				sleep 60
 				"""
 		      }
         }
