@@ -3,7 +3,7 @@ pipeline {
    parameters {
     choice(name: 'action', choices: 'create\ndestroy', description: 'Create/destroy the cluster.')
 	string(name: 'cluster', defaultValue : 'mediawiki', description: "EKS cluster name.")
-	string(name: 'region', defaultValue : 'us-west-1', description: "AWS region.")
+	string(name: 'region', defaultValue : 'us-east-1', description: "AWS region.")
   }
 
   agent any
@@ -39,16 +39,19 @@ pipeline {
         expression { params.action == 'create' }
 		}
 		steps {
-                      
+                      script {
 			
 				sh """
 					terraform apply -auto-approve ${plan}
 					aws eks update-kubeconfig --name ${params.cluster} --region ${params.region}
 				sleep 30
-				/root/bin/kubectl get nodes
-				/root/bin/kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: `terraform output endpoint | cut -d ':' -f1/g`" rds.yaml && kubectl apply -f . 
+				kubectl get nodes
+				kubectl apply -f namspace.yaml && sleep 10 && sed -i "s/externalName:.*/externalName: `terraform output endpoint | cut -d ':' -f1`/g" db_rds_k8s.yaml && kubectl apply -f .
+				(kubectl get svc -n thoughtworks | grep -i 80: | grep -i LoadBalancer | awk '{print \$4}')
+				(kubectl get svc -n thoughtworks | grep -i ExternalName | awk '{print \$1}')
+				sleep 60
 				"""
-			
+		      }
         }
 
     }
@@ -59,7 +62,7 @@ pipeline {
       steps {
         
 				sh """
-                                /root/bin/kubectl delete -f .
+                                kubectl delete -f .
 				terraform workspace select ${params.cluster}
 				terraform destroy -auto-approve -var "region=${params.region}" \
 					    -var "cluster_name=${params.cluster}" 
